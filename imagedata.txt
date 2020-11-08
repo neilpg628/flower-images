@@ -1,9 +1,5 @@
-image_03894.jpg: JPEG image data  1024x500
-image_07453.jpg: JPEG image data  500x1066
-image_03439.jpg: JPEG image data  500x1093
-image_03111.jpg: JPEG image data  500x1137
-image_07323.jpg: JPEG image data  500x1168
-image_07328.jpg: JPEG image data  500x1168
+# A text file with the sizes of the images in the raw dataset
+# Sorted by number of columns and then number of rows
 image_00954.jpg: JPEG image data  500x500
 image_01456.jpg: JPEG image data  500x500
 image_01761.jpg: JPEG image data  500x500
@@ -1954,6 +1950,11 @@ image_08049.jpg: JPEG image data  500x956
 image_02393.jpg: JPEG image data  500x970
 image_02410.jpg: JPEG image data  500x982
 image_02420.jpg: JPEG image data  500x993
+image_07453.jpg: JPEG image data  500x1066
+image_03439.jpg: JPEG image data  500x1093
+image_03111.jpg: JPEG image data  500x1137
+image_07323.jpg: JPEG image data  500x1168
+image_07328.jpg: JPEG image data  500x1168
 image_05213.jpg: JPEG image data  501x500
 image_07899.jpg: JPEG image data  501x500
 image_07907.jpg: JPEG image data  501x503
@@ -8187,3 +8188,4 @@ image_01266.jpg: JPEG image data  892x500
 image_07284.jpg: JPEG image data  905x500
 image_02963.jpg: JPEG image data  919x500
 image_03751.jpg: JPEG image data  931x500
+image_03894.jpg: JPEG image data  1024x500
