@@ -1,0 +1,6 @@
+python3 generate.py --outdir=outdog --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/afhqdog.pkl
+python3 generate.py --outdir=outcat --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/afhqcat.pkl
+python3 generate.py --outdir=outpaint --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/metfaces.pkl
+python3 generate.py --outdir=outwild --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/afhqwild.pkl
+python3 generate.py --outdir=outcifar --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/cifar10.pkl
+python3 generate.py --outdir=outpeople --trunc=1 --seeds=490-510 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/ffhq.pkl
