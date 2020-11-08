@@ -27,6 +27,23 @@ Now to actually train our model, which is a time intensive step that can take a 
 
 To train the network on a single Titan GPU with 32G of CPU RAM we can use the attached sbatch script which runs the command 
 
-`python3 train.py --outdir=./training-runs --gpus=2 --data=./datasets/flowers --mirror=1 --metrics=None --cfg=auto`
+`python3 train.py --outdir=./training-runs --gpus=1 --data=./datasets/flowers --mirror=1 --metrics=None --cfg=auto`
 
-This script does work. Refer to flowerjobtitan.log for the details.
+This script does work. Refer to flowerjobtitan.log for the details. There are plenty of options that can be passed to this script, and to see all of them run `python3 train.py -h`. Our setup will train the model for 25000 kimg, which is a very long time (approx 40 days on the single Titan GPU). However, models are snapshotted every 50 kimg so that at any time we can stop the process and use existing models. We will do this below.
+
+The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN we are able to generate images of any type by following these steps.
+
+#Generating Gifs
+The images created by StyleGAN exist in a latent space that can be traversed like any other space. We can also try 'walking' through this space to produce a sequence of very similar images that slowly transform from one to another. We can do this using the StyleGAN scripts in this [fork](https://github.com/dvschultz/stylegan2) of the main StyleGAN2 repository. First clone it, and then take note of the script `run_generator.py`. Passing arguments like so
+
+```
+python3 run_generator.py generate-latent-walk --network=./networks/stylegan2-ffhq-config-f.pkl --truncation-psi=0.7 --seeds=48295,83843,28494,54683,78382,83927,52345,78372,12783,97873 --frames 250
+ffmpeg -pattern_type glob -i '*.png' humans.mp4
+```
+
+will actually generate a walk through the latent space of images of people, given a model stored in `./networks`. `ffmpeg` is a standard command-line video software package that will string together the 250 still frames in `./results`. In this case we have used a pretrained network that can be found [here](https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/stylegan2-ffhq-config-f.pkl) and downloaded with `curl`. The video from this run is availbile [here](youtube.com). Running this on other models can produce
+
+[cars](google.com)
+[cats](google.com)
+[churches](google.com)
+[horses](google.com)
