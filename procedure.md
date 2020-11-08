@@ -13,7 +13,10 @@ For image generation it would be helpful to have a GPU with at least 11GB of RAM
 
 To actually train a model, we need far more resources and probably at least a couple of days with a single GPU to get proper convergence. NVIDIA makes it pretty easy to make you own datasets given a large collection of images. There are a large number of good databases for computer vision collated [here](http://homepages.inf.ed.ac.uk/rbf/CVonline/Imagedbase.htm#biomed) and they contain everything from images of flowers to videos of people making crepes. I personally used the dataset of 8189 flowers [here](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html).
 
-First, it is necessary to crop these images to squares with side length a power of 2. This can be done with `mogrify` on Linux. Once in the directory with the flower images, running `mogrify -verbose -type truecolor -format jpg -thumbnail 512x512^ -gravity center -extent 512x512 *` 
+First, it is necessary to crop these images to squares with side length a power of 2. This can be done with `mogrify` on Linux. Once in the directory with the flower images, running 
+
+`mogrify -verbose -type truecolor -format jpg -thumbnail 512x512^ -gravity center -extent 512x512 *` 
+
 This will crop and center every image in a 512x512 pixel region. `-type truecolor` tells it to preserve colors, and `-thumbnail` and `-extent` specify the minimum and maximum size. (The resolution with the caret is the min size 512x512).
 
 Then our directory will contain properly sized images.
