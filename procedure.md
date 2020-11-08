@@ -26,4 +26,4 @@ To train the network on a single Titan GPU with 32G of CPU RAM we can use the at
 
 `python3 train.py --outdir=./training-runs --gpus=2 --data=./datasets/flowers --mirror=1 --metrics=None --cfg=auto`
 
-This script does work.
+This script does work. Refer to flowertitan.log for the details.
