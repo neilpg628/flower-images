@@ -34,6 +34,7 @@ This script does work. Refer to flowerjobtitan.log for the details. There are pl
 The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN we are able to generate images of any type by following these steps.
 
 #Generating Gifs
+
 The images created by StyleGAN exist in a latent space that can be traversed like any other space. We can also try 'walking' through this space to produce a sequence of very similar images that slowly transform from one to another. We can do this using the StyleGAN scripts in this [fork](https://github.com/dvschultz/stylegan2) of the main StyleGAN2 repository. First clone it, and then take note of the script `run_generator.py`. Passing arguments like so
 
 ```
@@ -41,9 +42,9 @@ python3 run_generator.py generate-latent-walk --network=./networks/stylegan2-ffh
 ffmpeg -pattern_type glob -i '*.png' humans.mp4
 ```
 
-will actually generate a walk through the latent space of images of people, given a model stored in `./networks`. `ffmpeg` is a standard command-line video software package that will string together the 250 still frames in `./results`. In this case we have used a pretrained network that can be found [here](https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/stylegan2-ffhq-config-f.pkl) and downloaded with `curl`. The video from this run is availbile [here](youtube.com). Running this on other models can produce
+will actually generate a walk through the latent space of images of people, given a model stored in `./networks`. `ffmpeg` is a standard command-line video software package that will string together the 250 still frames in `./results`. In this case we have used a pretrained network that can be found [here](https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/stylegan2-ffhq-config-f.pkl) and downloaded with `curl`. The video from this run is availbile [here](https://youtu.be/6_srYUcTX6g). Running this on other models can produce similar walks through the space of 
 
-[cars](google.com)
-[cats](google.com)
-[churches](google.com)
-[horses](google.com)
+[cars](https://youtu.be/KRlBJYKeLgI)
+[cats](https://youtu.be/g3ex_i6e1Sg)
+[churches](https://youtu.be/X_Ds6MZbTPo)
+[horses](https://youtu.be/jz84aYEAcyE)
