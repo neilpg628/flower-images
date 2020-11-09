@@ -20,3 +20,6 @@ ffmpeg -r 24 -i ./results/generated-images/frame%05d.png -vcodec libx264 -pix_fm
 ```
 
 to produce a mp4 video file through the latent space of images.
+
+
+Edit -- See the procedure. Since the repo was made, the models were moved to a NVIDIA host.
