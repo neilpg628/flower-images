@@ -1,3 +1,5 @@
+# Generating Images
+
 To start this process, we need to clone the stylegan2-ada repo at https://github.com/NVlabs/stylegan2-ada. This contains all of the scripts for training new models and using existing ones.
 To generate images from existing models, we can use the .pkl models provided at https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/. Simply run
 
@@ -33,7 +35,7 @@ This script does work. Refer to flowerjobtitan.log for the details. There are pl
 
 The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN we are able to generate images of any type by following these steps.
 
-#Generating Gifs
+# Generating Gifs
 
 The images created by StyleGAN exist in a latent space that can be traversed like any other space. We can also try 'walking' through this space to produce a sequence of very similar images that slowly transform from one to another. We can do this using the StyleGAN scripts in this [fork](https://github.com/dvschultz/stylegan2) of the main StyleGAN2 repository. First clone it, and then take note of the script `run_generator.py`. Passing arguments like so
 
