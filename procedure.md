@@ -13,7 +13,7 @@ For instance, to generate 20 random images of dogs in the outdog directory, run
 
 For image generation it would be helpful to have a GPU with at least 11GB of RAM. I used a NVIDIA Titan RTX for this, though other methods could certainly work. The script `generate.sh` submitted as an sbatch job will create 11 images for each of 6 models (dogs, cats, wild animals, people, paintings and CIFAR) with seeds from 500-510 and should be pretty fast on a single Titan.
 
-To actually train a model, we need far more resources and probably at least a couple of days with a single GPU to get proper convergence. NVIDIA makes it pretty easy to make you own datasets given a large collection of images. There are a large number of good databases for computer vision collated [here](http://homepages.inf.ed.ac.uk/rbf/CVonline/Imagedbase.htm#biomed) and they contain everything from images of flowers to videos of people making crepes. I personally used the dataset of 8189 flowers [here](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html).
+To actually train a model, we need far more resources and at least a couple of days with a single GPU to get proper convergence. NVIDIA makes it pretty easy to make you own datasets given a large collection of images. There are a large number of good databases for computer vision collated [here](http://homepages.inf.ed.ac.uk/rbf/CVonline/Imagedbase.htm#biomed) and they contain everything from images of flowers to videos of people making crepes. I personally used the dataset of 8189 flowers [here](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html).
 
 First, it is necessary to crop these images to squares with side length a power of 2. This can be done with `mogrify` on Linux. Once in the directory with the flower images, running 
 
@@ -31,13 +31,13 @@ To train the network on a single Titan GPU with 32G of CPU RAM we can use the at
 
 `python3 train.py --outdir=./training-runs --gpus=1 --data=./datasets/flowers --mirror=1 --metrics=None --cfg=auto`
 
-This script does work. Refer to flowerjobtitan.log for the details. There are plenty of options that can be passed to this script, and to see all of them run `python3 train.py -h`. Our setup will train the model for 25000 kimg, which is a very long time (approx 40 days on the single Titan GPU). However, models are snapshotted every 50 kimg so that at any time we can stop the process and use existing models. We will do this below.
+This script does work. Refer to flowerjobtitan.log for the details. There are plenty of options that can be passed to this script, and to see all of them run `python3 train.py -h`. Our setup will train the model for 25000 kimg, which is a very long time (approx 40 days on the single Titan GPU). However, models are snapshotted every 50 kimg so that at any time we can stop the process and use existing models. The model trained for 5 days before it was stopped.
 
-The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN we are able to generate images of any type by following these steps.
+The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN2 we are able to generate images of any type by following these steps. Our .pkl model for flowers can be used to generate more flowers.
 
 # Generating Gifs
 
-The images created by StyleGAN exist in a latent space that can be traversed like any other space. We can also try 'walking' through this space to produce a sequence of very similar images that slowly transform from one to another. We can do this using the StyleGAN scripts in this [fork](https://github.com/dvschultz/stylegan2) of the main StyleGAN2 repository. First clone it, and then take note of the script `run_generator.py`. Passing arguments like so
+The images created by StyleGAN exist in a latent space that can be traversed like any other space. We can also try 'walking' through this space to produce a sequence of very similar images that slowly transform from one to another. We can do this using the scripts in this [fork](https://github.com/dvschultz/stylegan2) of the main StyleGAN2 repository. First clone it, and then take note of the script `run_generator.py`. Passing arguments like so
 
 ```
 python3 run_generator.py generate-latent-walk --network=./networks/stylegan2-ffhq-config-f.pkl --truncation-psi=0.7 --seeds=48295,83843,28494,54683,78382,83927,52345,78372,12783,97873 --frames 250
