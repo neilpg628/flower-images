@@ -46,7 +46,8 @@ ffmpeg -pattern_type glob -i '*.png' humans.mp4
 
 will actually generate a walk through the latent space of images of people, given a model stored in `./networks`. `ffmpeg` is a standard command-line video software package that will string together the 250 still frames in `./results`. In this case we have used a pretrained network that can be found [here](https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/stylegan2-ffhq-config-f.pkl) and downloaded with `curl`. The video from this run is availbile [here](https://youtu.be/6_srYUcTX6g). Running this on other models can produce similar walks through the space of 
 
-[cars](https://youtu.be/KRlBJYKeLgI)
-[cats](https://youtu.be/g3ex_i6e1Sg)
-[churches](https://youtu.be/X_Ds6MZbTPo)
-[horses](https://youtu.be/jz84aYEAcyE)
+* [Cars](https://youtu.be/KRlBJYKeLgI)
+* [Cats](https://youtu.be/g3ex_i6e1Sg)
+* [Churches](https://youtu.be/X_Ds6MZbTPo)
+* [Horses](https://youtu.be/jz84aYEAcyE)
+* [People]((https://youtu.be/6_srYUcTX6g)
