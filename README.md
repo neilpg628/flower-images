@@ -9,6 +9,6 @@ To replicate this you should first clone the stylegan2-ada repository [here](htt
 * [Cats](https://youtu.be/g3ex_i6e1Sg)
 * [Churches](https://youtu.be/X_Ds6MZbTPo)
 * [Horses](https://youtu.be/jz84aYEAcyE)
-* [People]((https://youtu.be/6_srYUcTX6g)
+* [People](https://youtu.be/6_srYUcTX6g)
 
 ![Generated Flowers](https://github.com/neilpg628/flower-images/blob/master/flowers/fakes003000.png)
