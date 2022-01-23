@@ -33,7 +33,7 @@ To train the network on a single Titan GPU with 32G of CPU RAM we can use the at
 
 This script does work. Refer to flowerjobtitan.log for the details. There are plenty of options that can be passed to this script, and to see all of them run `python3 train.py -h`. Our setup will train the model for 25000 kimg, which is a very long time (approx 40 days on the single Titan GPU). However, models are snapshotted every 50 kimg so that at any time we can stop the process and use existing models. The model trained for 5 days before it was stopped.
 
-The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN2 we are able to generate images of any type by following these steps. Our .pkl model for flowers can be used to generate more flowers. The model is [here](https://drive.google.com/file/d/1mHoo3ud5SUt7GmJdm4EB0H3DqO4zi1Qp/view?usp=sharing). Try running it youself!
+The .pkl files in training-runs are snapshots of our model, and they can be used to generate images using `generate.py`! Thus with StyleGAN2 we are able to generate images of any type by following these steps. Our .pkl model for flowers can be used to generate more flowers. The model is [here](https://drive.google.com/file/d/1dUn2fqWVsfv-x0cyftGvuPsGAjSeRpUh/view?usp=sharing). Try running it youself!
 
 # Generating Gifs
 
